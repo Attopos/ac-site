@@ -243,6 +243,560 @@ h2 {
   transition: none;
 }
 
+body.site-temple {
+  --temple-bg: #f2f1eb;
+  --temple-ink: #14171b;
+  --temple-line: #9ea8b1;
+  --temple-accent: #2f83a8;
+  --temple-accent-soft: rgba(47, 131, 168, 0.16);
+  --temple-accent-trace: rgba(47, 131, 168, 0.52);
+  background:
+    radial-gradient(circle at 78% 16%, rgba(47, 131, 168, 0.12), transparent 34%),
+    linear-gradient(180deg, #f6f5f0 0%, #efede6 100%);
+  color: var(--temple-ink);
+  font-family: "Avenir Next", "Optima", "Helvetica Neue", Arial, sans-serif;
+}
+
+body.site-temple .site-header {
+  background: rgba(242, 241, 235, 0.84);
+  border-bottom: 1px solid rgba(20, 23, 27, 0.2);
+  backdrop-filter: blur(3px);
+}
+
+body.site-temple .brand {
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+body.site-temple .site-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  border-bottom: 0;
+  padding: 0.3rem 0.14rem;
+}
+
+body.site-temple .site-nav a.active,
+body.site-temple .site-nav a:hover {
+  color: rgba(20, 23, 27, 0.9);
+}
+
+body.site-temple .temple-main {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: clamp(2.2rem, 6vw, 4.2rem) clamp(1.2rem, 5vw, 5.4rem) 4.8rem;
+  display: grid;
+  gap: clamp(2rem, 8vw, 6rem);
+  position: relative;
+}
+
+body.site-temple .page-main {
+  gap: clamp(1.4rem, 5vw, 3rem);
+}
+
+body.site-temple .chamber-architecture {
+  position: relative;
+  min-height: min(82vh, 760px);
+  display: grid;
+  align-content: center;
+  gap: 1.2rem;
+  padding: clamp(2.4rem, 6vw, 5.1rem) clamp(1.2rem, 3vw, 2.2rem) clamp(1.6rem, 5vw, 2.8rem) clamp(4rem, 12vw, 10.8rem);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(247, 246, 240, 0.74) 22%, rgba(247, 246, 240, 0.4) 62%, rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 64% 56%, rgba(47, 131, 168, 0.08), transparent 44%),
+    radial-gradient(circle at 42% 58%, rgba(105, 133, 148, 0.08), transparent 38%),
+    repeating-linear-gradient(90deg, rgba(20, 23, 27, 0.025) 0, rgba(20, 23, 27, 0.025) 1px, transparent 1px, transparent 46px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+body.site-temple .page-chamber,
+body.site-temple .article-shell {
+  position: relative;
+  display: grid;
+  gap: 0.95rem;
+  padding: clamp(1.6rem, 4vw, 2.8rem) clamp(1rem, 3vw, 1.8rem) clamp(1.2rem, 3.8vw, 2rem) clamp(3rem, 9vw, 7rem);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(247, 246, 240, 0.72) 26%, rgba(247, 246, 240, 0.35) 64%, rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 66% 54%, rgba(47, 131, 168, 0.07), transparent 48%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+}
+
+body.site-temple .chamber-architecture > *,
+body.site-temple .page-chamber > *,
+body.site-temple .article-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.site-temple .chamber-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 86px, rgba(47, 131, 168, 0.1) 86px, rgba(47, 131, 168, 0.1) 87px),
+    repeating-linear-gradient(180deg, transparent 0, transparent 66px, rgba(47, 131, 168, 0.06) 66px, rgba(47, 131, 168, 0.06) 67px),
+    radial-gradient(circle at 58% 52%, rgba(47, 131, 168, 0.14), transparent 55%);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.08) 88%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.08) 88%, transparent 100%);
+}
+
+body.site-temple .page-chamber .chamber-grid,
+body.site-temple .article-shell .chamber-grid {
+  opacity: 0.24;
+}
+
+body.site-temple .chamber-architecture::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: clamp(1rem, 4vw, 3.2rem);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 23, 27, 0.18),
+    rgba(47, 131, 168, 0.30),
+    rgba(20, 23, 27, 0.18)
+  );
+}
+
+body.site-temple .field-markers {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+}
+
+body.site-temple .field-markers span {
+  width: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(20, 23, 27, 0.45), rgba(47, 131, 168, 0.58));
+}
+
+body.site-temple .chamber-index,
+body.site-temple .kicker,
+body.site-temple .text-meta {
+  margin: 0;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.12em;
+  color: rgba(20, 23, 27, 0.72);
+}
+
+body.site-temple h1,
+body.site-temple h2,
+body.site-temple h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+  color: #111418;
+}
+
+body.site-temple h1 {
+  margin: 0;
+  line-height: 1.16;
+  font-size: clamp(2.3rem, 6.6vw, 5.6rem);
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+body.site-temple .lead {
+  margin: 0;
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.55vw, 1.15rem);
+}
+
+body.site-temple .page-chamber h1,
+body.site-temple .article-shell h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.8rem);
+  max-width: 18ch;
+}
+
+body.site-temple .status-line {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  color: rgba(20, 23, 27, 0.68);
+  position: relative;
+}
+
+body.site-temple .status-line::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 6px;
+  margin-left: 0.5rem;
+  border: 1px solid rgba(47, 131, 168, 0.56);
+  border-left-width: 2px;
+  vertical-align: middle;
+  animation: statusPulse 4.8s ease-in-out infinite;
+}
+
+body.site-temple .coord-line {
+  margin: -0.5rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  color: rgba(20, 23, 27, 0.58);
+}
+
+body.site-temple .coord-line::after {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  margin-left: 0.65rem;
+  vertical-align: middle;
+  background: linear-gradient(90deg, var(--temple-accent-trace), transparent);
+  animation: traceDrift 5.6s ease-in-out infinite;
+}
+
+body.site-temple .passage-nav {
+  margin-top: clamp(1.4rem, 3vh, 2.2rem);
+  display: grid;
+  gap: 0;
+  max-width: 900px;
+}
+
+body.site-temple .passage-nav a {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: rgba(20, 23, 27, 0.9);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+  font-size: clamp(1.24rem, 2.8vw, 2rem);
+  line-height: 1.2;
+  padding: 0.62rem 0;
+  border-top: 1px solid rgba(20, 23, 27, 0.2);
+  position: relative;
+  transition: color 0.2s ease, padding-left 0.2s ease, letter-spacing 0.2s ease, background-size 0.25s ease, box-shadow 0.25s ease;
+  background-image: linear-gradient(90deg, rgba(47, 131, 168, 0.09), transparent 52%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 0 rgba(47, 131, 168, 0.2);
+}
+
+body.site-temple .passage-nav a:last-child {
+  border-bottom: 1px solid rgba(20, 23, 27, 0.2);
+}
+
+body.site-temple .passage-nav a span {
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+  color: rgba(20, 23, 27, 0.58);
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-weight: 650;
+}
+
+body.site-temple .passage-title {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease;
+}
+
+body.site-temple .passage-nav a em {
+  font-style: normal;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: rgba(20, 23, 27, 0.48);
+  justify-self: end;
+  transition: color 0.2s ease, letter-spacing 0.2s ease, transform 0.2s ease;
+  opacity: 0.88;
+}
+
+body.site-temple .passage-nav a::before {
+  content: "";
+  position: absolute;
+  left: 44px;
+  right: 0;
+  height: 1px;
+  bottom: -1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--temple-accent-trace), rgba(47, 131, 168, 0.06));
+  transition: transform 0.26s ease;
+}
+
+body.site-temple .passage-nav a:hover {
+  color: var(--temple-accent);
+  padding-left: 0.42rem;
+  letter-spacing: 0.01em;
+  background-size: 100% 100%;
+  box-shadow: inset 0 0 0 1px rgba(47, 131, 168, 0.12);
+}
+
+body.site-temple .passage-nav a:hover span,
+body.site-temple .passage-nav a:focus-visible span {
+  color: var(--temple-accent);
+  transform: translateX(1px);
+}
+
+body.site-temple .passage-nav a:hover .passage-title,
+body.site-temple .passage-nav a:focus-visible .passage-title {
+  transform: translateX(2px);
+}
+
+body.site-temple .passage-nav a:hover em,
+body.site-temple .passage-nav a:focus-visible em {
+  color: rgba(47, 131, 168, 0.88);
+  letter-spacing: 0.13em;
+  transform: translateX(-1px);
+}
+
+body.site-temple .passage-nav a:hover::before,
+body.site-temple .passage-nav a:focus-visible::before {
+  transform: scaleX(1);
+}
+
+body.site-temple .passage-nav a:focus-visible {
+  outline: none;
+  color: var(--temple-accent);
+  background: linear-gradient(90deg, var(--temple-accent-soft), transparent 44%);
+}
+
+body.site-temple .lower-axis {
+  width: min(580px, 62%);
+  height: 1px;
+  margin-top: clamp(1.3rem, 3vh, 2.4rem);
+  background: linear-gradient(90deg, rgba(47, 131, 168, 0.56), rgba(47, 131, 168, 0.08));
+}
+
+body.site-temple .annex {
+  position: relative;
+  margin-left: clamp(4rem, 12vw, 10.8rem);
+  max-width: 780px;
+  padding-left: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+}
+
+body.site-temple .archive-stream {
+  position: relative;
+  margin-left: clamp(2.8rem, 9vw, 7.4rem);
+  max-width: 900px;
+  padding-left: clamp(0.9rem, 2.2vw, 1.5rem);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+}
+
+body.site-temple .archive-stream::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(20, 23, 27, 0.2), rgba(47, 131, 168, 0.28), rgba(20, 23, 27, 0.2));
+}
+
+body.site-temple .annex::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(20, 23, 27, 0.2), rgba(47, 131, 168, 0.32), rgba(20, 23, 27, 0.2));
+}
+
+body.site-temple .annex-head {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+body.site-temple .kicker {
+  text-transform: uppercase;
+}
+
+body.site-temple .annex-head h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+}
+
+body.site-temple .text-stream {
+  display: grid;
+  gap: 1.4rem;
+  counter-reset: archiveNodes;
+}
+
+body.site-temple .text-item {
+  counter-increment: archiveNodes;
+  border-top: 1px solid rgba(20, 23, 27, 0.2);
+  padding-top: 0.9rem;
+  padding-left: 1.35rem;
+  display: grid;
+  gap: 0.34rem;
+  position: relative;
+}
+
+body.site-temple .text-item::before {
+  content: "";
+  position: absolute;
+  left: 0.02rem;
+  top: 1.08rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid rgba(20, 23, 27, 0.4);
+  background: rgba(47, 131, 168, 0.08);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(47, 131, 168, 0.05);
+}
+
+body.site-temple .text-item::after {
+  content: "";
+  position: absolute;
+  left: 0.92rem;
+  top: 1.34rem;
+  width: 26px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(47, 131, 168, 0.54), transparent);
+}
+
+body.site-temple .node-id {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: rgba(20, 23, 27, 0.56);
+}
+
+body.site-temple .node-id span:last-child::after {
+  content: " / SEQ " counter(archiveNodes, decimal-leading-zero);
+}
+
+body.site-temple .text-meta {
+  color: rgba(20, 23, 27, 0.66);
+}
+
+body.site-temple .text-item h3 {
+  margin: 0;
+  font-size: clamp(1.12rem, 1.8vw, 1.4rem);
+}
+
+body.site-temple .text-item p {
+  margin: 0;
+}
+
+body.site-temple .text-item h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+body.site-temple .text-item h3 a:hover {
+  color: var(--temple-accent);
+  border-bottom-color: var(--temple-accent);
+}
+
+body.site-temple .text-item h3 a:focus-visible {
+  outline: none;
+  color: var(--temple-accent);
+  border-bottom-color: var(--temple-accent);
+}
+
+body.site-temple .article-shell {
+  max-width: 880px;
+  margin-left: clamp(2.8rem, 9vw, 7.4rem);
+}
+
+body.site-temple .article-body {
+  display: grid;
+  gap: 1rem;
+  max-width: 70ch;
+}
+
+body.site-temple .article-body p {
+  margin: 0;
+}
+
+body.site-temple .back-link {
+  display: inline-block;
+  width: fit-content;
+  text-decoration: none;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(20, 23, 27, 0.72);
+  border-top: 1px solid rgba(20, 23, 27, 0.24);
+  padding-top: 0.55rem;
+  transition: color 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease;
+}
+
+body.site-temple .back-link:hover,
+body.site-temple .back-link:focus-visible {
+  color: var(--temple-accent);
+  border-color: rgba(47, 131, 168, 0.52);
+  padding-left: 0.25rem;
+  outline: none;
+}
+
+body.site-temple .text-item:hover::before {
+  border-color: rgba(47, 131, 168, 0.7);
+  background: rgba(47, 131, 168, 0.2);
+}
+
+body.site-temple .text-item:hover .node-id {
+  color: rgba(47, 131, 168, 0.86);
+}
+
+@keyframes traceDrift {
+  0%, 100% {
+    width: 22px;
+    opacity: 0.7;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 0 rgba(47, 131, 168, 0);
+  }
+  45% {
+    opacity: 0.85;
+    box-shadow: 0 0 0 3px rgba(47, 131, 168, 0.08);
+  }
+}
+
+body.site-temple .closing-text {
+  margin: 0;
+  max-width: 55ch;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(20, 23, 27, 0.2);
+}
+
+body.site-temple .site-footer {
+  border-top: 1px solid rgba(20, 23, 27, 0.2);
+  background: rgba(242, 241, 235, 0.68);
+}
+
+body.site-temple .site-footer p {
+  margin: 0;
+  letter-spacing: 0.06em;
+  font-size: 0.77rem;
+}
+
 @media (max-width: 760px) {
   .menu-toggle {
     display: inline-block;
@@ -269,5 +823,46 @@ h2 {
 
   .scroll-list {
     grid-template-columns: 1fr;
+  }
+
+  body.site-temple .site-nav {
+    border: 1px solid rgba(20, 23, 27, 0.2);
+    background: #f5f4ee;
+  }
+
+  body.site-temple .temple-main {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  body.site-temple .chamber-architecture {
+    min-height: auto;
+    padding: 2.3rem 0 1.3rem 1.6rem;
+    gap: 0.95rem;
+  }
+
+  body.site-temple .page-chamber,
+  body.site-temple .article-shell {
+    padding: 1.8rem 0 1.2rem 1.3rem;
+  }
+
+  body.site-temple .passage-nav a {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    font-size: 1.34rem;
+  }
+
+  body.site-temple .passage-nav a em {
+    font-size: 0.58rem;
+  }
+
+  body.site-temple .annex {
+    margin-left: 1.6rem;
+    padding-left: 0.85rem;
+  }
+
+  body.site-temple .archive-stream,
+  body.site-temple .article-shell {
+    margin-left: 1.6rem;
+    padding-left: 0.85rem;
   }
 }

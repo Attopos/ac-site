@@ -6,58 +6,63 @@
   <title>AARON CAO | Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="site-temple">
   <header class="site-header">
-    <a class="brand" href="index.html">AARON CAO</a>
+    <a class="brand" href="index.html">AARON CAO / ARCHIVE</a>
     <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
     <nav id="siteNav" class="site-nav">
-      <a class="active" href="index.html">Home</a>
-      <a href="articles.html">Articles</a>
+      <a class="active" href="index.html">Chamber</a>
+      <a href="articles.html">Writings</a>
       <a href="projects.html">Projects</a>
+      <a href="about.html">About / Now</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero reveal">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">Personal Site</p>
-          <h1>Clear Structure. Useful Information.</h1>
-          <p class="lead">This site is designed to help you find what matters quickly: writing, projects, and contact details.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="projects.html">View Projects</a>
-            <a class="btn" href="articles.html">Read Articles</a>
-          </div>
-        </div>
-
-        <aside class="hero-aside" aria-label="Quick navigation">
-          <h2>Quick Start</h2>
-          <ul class="quick-links">
-            <li><a href="articles.html">Latest Articles</a></li>
-            <li><a href="projects.html">Featured Projects</a></li>
-            <li><a href="contact.html">Contact Information</a></li>
-          </ul>
-        </aside>
+  <main class="temple-main">
+    <section class="chamber-architecture reveal" aria-labelledby="chamber-title">
+      <div class="chamber-grid" aria-hidden="true"></div>
+      <div class="field-markers" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <p class="chamber-index">CHAMBER / NODE 01</p>
+      <h1 id="chamber-title">A quiet structure for a long conversation with ideas.</h1>
+      <p class="lead">
+        This archive is arranged as a built environment, not a feed. Texts, projects, and notes are placed on a shared axis so each part can be entered in sequence.
+      </p>
+      <p class="status-line">Status: Open archive · Signal level: low · Revision state: ongoing</p>
+      <p class="coord-line">COORDINATE: C-01.22 / EAST TRANSEPT / PUBLIC CHANNEL</p>
+      <nav class="passage-nav" aria-label="Main passages">
+        <a href="articles.html"><span>02</span><strong class="passage-title">Writings</strong><em>text corridor</em></a>
+        <a href="projects.html"><span>03</span><strong class="passage-title">Projects</strong><em>build corridor</em></a>
+        <a href="about.html"><span>04</span><strong class="passage-title">About / Now</strong><em>position log</em></a>
+        <a href="contact.html"><span>05</span><strong class="passage-title">Contact</strong><em>signal gate</em></a>
+      </nav>
+      <div class="lower-axis" aria-hidden="true"></div>
     </section>
 
-    <section class="cards reveal">
-      <article class="card">
-        <h2>Articles</h2>
-        <p>Thoughts, methods, and practical notes.</p>
-        <a href="articles.html">Go to Articles</a>
-      </article>
-      <article class="card">
-        <h2>Projects</h2>
-        <p>Selected builds with clear summaries.</p>
-        <a href="projects.html">Go to Projects</a>
-      </article>
-      <article class="card">
-        <h2>Contact</h2>
-        <p>Ways to reach out for collaboration.</p>
-        <a href="contact.html">Go to Contact</a>
-      </article>
+    <section class="annex reveal" aria-labelledby="annex-title">
+      <div class="annex-head">
+        <p class="kicker">Selected Texts</p>
+        <h2 id="annex-title">Current entries on the inner ring</h2>
+      </div>
+      <div class="text-stream">
+        <article class="text-item">
+          <p class="node-id"><span>RING A</span><span>NODE 02.14</span></p>
+          <p class="text-meta">ESSAY / SYSTEMS</p>
+          <h3><a href="articles/article1.html">The discipline of clear technical decisions</a></h3>
+          <p>A short argument for explicit tradeoffs, measurable constraints, and calm engineering judgment.</p>
+        </article>
+        <article class="text-item">
+          <p class="node-id"><span>RING A</span><span>NODE 02.15</span></p>
+          <p class="text-meta">NOTE / PROCESS</p>
+          <h3><a href="articles/article2.html">Building durable work rhythms in noisy environments</a></h3>
+          <p>Operational patterns for maintaining depth when context switches are unavoidable.</p>
+        </article>
+      </div>
+      <p class="closing-text">The structure extends beyond this page. Use any passage, then return to the axis.</p>
     </section>
   </main>
 

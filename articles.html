@@ -6,37 +6,44 @@
   <title>AARON CAO | Articles</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="site-temple">
 
   <header class="site-header">
-    <a class="brand" href="index.html">AARON CAO</a>
+    <a class="brand" href="index.html">AARON CAO / ARCHIVE</a>
     <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
     <nav id="siteNav" class="site-nav">
-      <a href="index.html">Home</a>
-      <a class="active" href="articles.html">Articles</a>
+      <a href="index.html">Chamber</a>
+      <a class="active" href="articles.html">Writings</a>
       <a href="projects.html">Projects</a>
+      <a href="about.html">About / Now</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="page-wrap">
-    <section class="page-title reveal">
-      <p class="eyebrow">Scholars' Hall // Archive Stream</p>
-      <h1>Article Scrolls</h1>
-      <p class="lead">Each article is a chamber in the palace, mapped for recall and recombination.</p>
+  <main class="temple-main page-main">
+    <section class="page-chamber reveal" aria-labelledby="writings-title">
+      <div class="chamber-grid" aria-hidden="true"></div>
+      <p class="chamber-index">WRITINGS / RING 02</p>
+      <h1 id="writings-title">Texts arranged as indexed rooms of argument and memory.</h1>
+      <p class="lead">Each entry is positioned for retrieval and recombination, with lineage preserved.</p>
+      <p class="coord-line">COORDINATE: W-02 / ARCHIVE CORRIDOR / PUBLIC INDEX</p>
     </section>
 
-    <section class="scroll-list reveal">
-      <article class="scroll-item">
-        <h2>Article I: On Craft and Character</h2>
-        <p>Notes on quality, aesthetic discipline, and durable building habits.</p>
-        <a href="articles/article1.html">Read Full Scroll</a>
-      </article>
-      <article class="scroll-item">
-        <h2>Article II: Building a Palace of Memory</h2>
-        <p>A practical framework for turning notes into a reusable thinking system.</p>
-        <a href="articles/article2.html">Read Full Scroll</a>
-      </article>
+    <section class="archive-stream reveal" aria-label="Writing nodes">
+      <div class="text-stream">
+        <article class="text-item archive-node">
+          <p class="node-id"><span>RING A</span><span>NODE 02.14</span></p>
+          <p class="text-meta">ESSAY / CANON</p>
+          <h3><a href="articles/article1.html">On Craft and Character</a></h3>
+          <p>Notes on quality, aesthetic discipline, and durable building habits.</p>
+        </article>
+        <article class="text-item archive-node">
+          <p class="node-id"><span>RING A</span><span>NODE 02.15</span></p>
+          <p class="text-meta">ESSAY / ARCHITECTURE</p>
+          <h3><a href="articles/article2.html">Building a Palace of Memory</a></h3>
+          <p>A practical framework for turning notes into a reusable thinking system.</p>
+        </article>
+      </div>
     </section>
   </main>
 

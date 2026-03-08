@@ -6,42 +6,50 @@
   <title>AARON CAO | Projects</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="site-temple">
 
   <header class="site-header">
-    <a class="brand" href="index.html">AARON CAO</a>
+    <a class="brand" href="index.html">AARON CAO / ARCHIVE</a>
     <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
     <nav id="siteNav" class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="articles.html">Articles</a>
+      <a href="index.html">Chamber</a>
+      <a href="articles.html">Writings</a>
       <a class="active" href="projects.html">Projects</a>
+      <a href="about.html">About / Now</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="page-wrap">
-    <section class="page-title reveal">
-      <p class="eyebrow">Forge Gallery // Build Registry</p>
-      <h1>Project Chambers</h1>
-      <p class="lead">Every project is a statue of solved constraints, lit by logic and iteration.</p>
+  <main class="temple-main page-main">
+    <section class="page-chamber reveal" aria-labelledby="projects-title">
+      <div class="chamber-grid" aria-hidden="true"></div>
+      <p class="chamber-index">PROJECTS / RING 03</p>
+      <h1 id="projects-title">Constructed systems tracked as operational artifacts.</h1>
+      <p class="lead">Each project is recorded by scope, constraints, and ongoing evolution.</p>
+      <p class="coord-line">COORDINATE: P-03 / BUILD CORRIDOR / FIELD LOG</p>
     </section>
 
-    <section class="cards reveal">
-      <article class="card">
-        <h2>Temple Atlas</h2>
-        <p>A visual map that tracks learning routes and concept relationships.</p>
-        <a href="#">View Details</a>
-      </article>
-      <article class="card">
-        <h2>Agora Notes</h2>
-        <p>A lightweight writing and review system for focused daily synthesis.</p>
-        <a href="#">View Details</a>
-      </article>
-      <article class="card">
-        <h2>Aegean UI Kit</h2>
-        <p>A component library inspired by classical proportion and futuristic interfaces.</p>
-        <a href="#">View Details</a>
-      </article>
+    <section class="archive-stream reveal" aria-label="Project nodes">
+      <div class="text-stream">
+        <article class="text-item archive-node">
+          <p class="node-id"><span>RING B</span><span>NODE 03.07</span></p>
+          <p class="text-meta">SYSTEM / MAPPING</p>
+          <h3><a href="#">Temple Atlas</a></h3>
+          <p>A visual map that tracks learning routes and concept relationships.</p>
+        </article>
+        <article class="text-item archive-node">
+          <p class="node-id"><span>RING B</span><span>NODE 03.08</span></p>
+          <p class="text-meta">SYSTEM / PROCESS</p>
+          <h3><a href="#">Agora Notes</a></h3>
+          <p>A lightweight writing and review system for focused daily synthesis.</p>
+        </article>
+        <article class="text-item archive-node">
+          <p class="node-id"><span>RING B</span><span>NODE 03.09</span></p>
+          <p class="text-meta">SYSTEM / INTERFACE</p>
+          <h3><a href="#">Aegean UI Kit</a></h3>
+          <p>A component library based on classical proportion and restrained interface signals.</p>
+        </article>
+      </div>
     </section>
   </main>
 
