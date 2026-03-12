@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const latest = posts.filter((post) => post.id !== featured.id).slice(0, 3);
+---
+
+<BaseLayout
+  title="Aaron Cao | Writing about systems, leverage, and building"
+  currentPath="/"
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Personal publication</p>
+      <h1>Writing about systems, leverage, and building a deliberate life.</h1>
+      <p class="hero-text">
+        A calm archive for essays and notes on work, technology, and the structures that create range over time.
+      </p>
+    </div>
+
+    <aside class="featured-panel">
+      <p class="eyebrow">Featured essay</p>
+      <h2><a href={`/writing/${featured.id}/`}>{featured.data.title}</a></h2>
+      <p class="feature-meta">{featured.data.category} · {featured.data.readTime}</p>
+      <p>{featured.data.description}</p>
+    </aside>
+  </section>
+
+  <section class="section-block">
+    <div class="section-head">
+      <p class="section-kicker">Latest writing</p>
+      <h2>Recent essays and working notes</h2>
+    </div>
+
+    <div class="post-grid">
+      {
+        latest.map((post) => (
+          <PostCard
+            href={`/writing/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            publishedAt={post.data.publishedAt}
+            readTime={post.data.readTime}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="topics-strip">
+    <div>
+      <p class="section-kicker">Topics</p>
+      <h2>The recurring threads</h2>
+    </div>
+    <ul class="topic-list">
+      <li>Systems</li>
+      <li>Writing</li>
+      <li>Technology</li>
+      <li>Focus</li>
+      <li>Life Design</li>
+    </ul>
+  </section>
+</BaseLayout>

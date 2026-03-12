@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const { title, description = "Writing about systems, leverage, and building a deliberate life.", currentPath = "/" } = Astro.props;
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/writing", label: "Writing" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">Aaron Cao</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          {
+            navItems.map((item) => (
+              <a href={item.href} class={currentPath === item.href ? "active" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>A personal publication about systems, leverage, and intentional work.</p>
+        <p>© 2026 Aaron Cao</p>
+      </div>
+    </footer>
+  </body>
+</html>

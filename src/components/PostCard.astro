@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  category: string;
+  publishedAt: Date;
+  readTime: string;
+}
+
+const { href, title, description, category, publishedAt, readTime } = Astro.props;
+
+const formattedDate = publishedAt.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric"
+});
+---
+
+<article class="post-card">
+  <p class="post-meta">{category} · {formattedDate} · {readTime}</p>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{description}</p>
+</article>

@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const archive = posts.filter((post) => post.id !== featured.id);
+---
+
+<BaseLayout title="Writing | Aaron Cao" currentPath="/writing">
+  <section class="archive-hero">
+    <p class="eyebrow">Writing</p>
+    <h1>An archive of essays, notes, and working theories.</h1>
+    <p class="hero-text">
+      The structure is simple: clear ideas, readable pages, and enough order that the archive compounds over time.
+    </p>
+  </section>
+
+  <section class="featured-row">
+    <div class="section-head">
+      <p class="section-kicker">Featured</p>
+      <h2><a href={`/writing/${featured.id}/`}>{featured.data.title}</a></h2>
+    </div>
+    <p class="feature-meta">
+      {featured.data.category} · {featured.data.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })} · {featured.data.readTime}
+    </p>
+    <p>{featured.data.description}</p>
+  </section>
+
+  <section class="section-block">
+    <div class="section-head">
+      <p class="section-kicker">Archive</p>
+      <h2>All writing</h2>
+    </div>
+
+    <div class="archive-list">
+      {
+        archive.map((post) => (
+          <PostCard
+            href={`/writing/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            publishedAt={post.data.publishedAt}
+            readTime={post.data.readTime}
+          />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

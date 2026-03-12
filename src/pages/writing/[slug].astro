@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.id },
+      props: { post, posts }
+    }));
+}
+
+const { post, posts } = Astro.props;
+const { Content } = await post.render();
+
+const relatedPosts = posts
+  .filter((entry) => entry.id !== post.id)
+  .slice(0, 2);
+
+const formattedDate = post.data.publishedAt.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+---
+
+<BaseLayout title={`${post.data.title} | Aaron Cao`} currentPath="/writing">
+  <article class="article-page">
+    <header class="article-header">
+      <p class="eyebrow">{post.data.category}</p>
+      <h1>{post.data.title}</h1>
+      <p class="article-deck">{post.data.description}</p>
+      <p class="article-meta">{formattedDate} · {post.data.readTime}</p>
+    </header>
+
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+
+  <section class="related-posts">
+    <div class="section-head">
+      <p class="section-kicker">Continue reading</p>
+      <h2>Related entries</h2>
+    </div>
+
+    <div class="post-grid">
+      {
+        relatedPosts.map((entry) => (
+          <article class="post-card">
+            <p class="post-meta">{entry.data.category} · {entry.data.readTime}</p>
+            <h3><a href={`/writing/${entry.id}/`}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
