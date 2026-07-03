@@ -2,12 +2,40 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Projects | Aaron Cao" currentPath="/projects">
-  <section class="archive-hero">
-    <p class="eyebrow">Projects</p>
-    <h1>Systems and tools under active construction.</h1>
-    <p class="hero-text">
-      This section will hold product experiments, technical notes, and build logs connected to the writing archive.
-    </p>
+<BaseLayout title="Projects — Aaron Cao" currentPath="/projects">
+  <section class="archive-hero" data-reveal>
+    <p class="eyebrow">Projects / Experiments</p>
+    <h1>Ideas become useful<br /><span>when they meet reality.</span></h1>
+    <p class="hero-text">A growing collection of systems, tools, and experiments. Some are shipped; others are still finding their shape.</p>
+  </section>
+
+  <section class="project-list" data-reveal>
+    <article class="project-row">
+      <div class="project-index"><span>01</span><i class="status-dot"></i></div>
+      <div class="project-content">
+        <p class="section-kicker">Digital garden · Active</p>
+        <h2>AaronCao.com</h2>
+        <p>A personal publishing system for essays, working notes, and ideas that compound over time.</p>
+        <div class="project-tags"><span>Astro</span><span>Writing</span><span>Design system</span></div>
+      </div>
+      <div class="project-preview site-preview" aria-hidden="true">
+        <div class="preview-nav"><span>AC</span><i></i><i></i><i></i></div>
+        <div class="preview-copy"><small>PERSONAL PUBLICATION</small><strong>Clear ideas.<br />Deliberate work.</strong><span></span><span></span></div>
+      </div>
+    </article>
+
+    <article class="project-row direction-row">
+      <div class="project-index"><span>02</span></div>
+      <div class="project-content">
+        <p class="section-kicker">Exploration</p>
+        <h2>Current directions</h2>
+        <p>Questions and territories under active investigation—not polished outcomes, but useful places to build from.</p>
+      </div>
+      <div class="direction-list">
+        <div><span>01</span><strong>Personal knowledge systems</strong><i>↗</i></div>
+        <div><span>02</span><strong>Tools for focused work</strong><i>↗</i></div>
+        <div><span>03</span><strong>AI and individual agency</strong><i>↗</i></div>
+      </div>
+    </article>
   </section>
 </BaseLayout>

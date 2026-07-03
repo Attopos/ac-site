@@ -18,7 +18,15 @@ const formattedDate = publishedAt.toLocaleDateString("en-US", {
 ---
 
 <article class="post-card">
-  <p class="post-meta">{category} · {formattedDate} · {readTime}</p>
-  <h3><a href={href}>{title}</a></h3>
-  <p>{description}</p>
+  <a class="post-card-link" href={href}>
+    <div class="post-card-top">
+      <span class="category-pill">{category}</span>
+      <span class="post-arrow" aria-hidden="true">↗</span>
+    </div>
+    <div class="post-card-copy">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+    <p class="post-meta">{formattedDate}<span></span>{readTime}</p>
+  </a>
 </article>

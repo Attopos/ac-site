@@ -11,45 +11,53 @@ const featured = posts.find((post) => post.data.featured) ?? posts[0];
 const archive = posts.filter((post) => post.id !== featured.id);
 ---
 
-<BaseLayout title="Writing | Aaron Cao" currentPath="/writing">
-  <section class="archive-hero">
-    <p class="eyebrow">Writing</p>
-    <h1>An archive of essays, notes, and working theories.</h1>
-    <p class="hero-text">
-      The structure is simple: clear ideas, readable pages, and enough order that the archive compounds over time.
-    </p>
+<BaseLayout title="Writing — Aaron Cao" currentPath="/writing">
+  <section class="archive-hero" data-reveal>
+    <p class="eyebrow">Writing / 03 entries</p>
+    <h1>Ideas worth<br /><span>returning to.</span></h1>
+    <p class="hero-text">Essays and field notes on systems, useful work, technology, and building a more deliberate life.</p>
   </section>
 
-  <section class="featured-row">
-    <div class="section-head">
-      <p class="section-kicker">Featured</p>
-      <h2><a href={`/writing/${featured.id}/`}>{featured.data.title}</a></h2>
-    </div>
-    <p class="feature-meta">
-      {featured.data.category} · {featured.data.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })} · {featured.data.readTime}
-    </p>
-    <p>{featured.data.description}</p>
+  <section class="writing-feature" data-reveal>
+    <p class="section-kicker">Featured essay</p>
+    <a class="featured-essay" href={`/writing/${featured.id}/`}>
+      <div class="featured-art" aria-hidden="true">
+        <div class="art-grid"></div><span class="art-orb"></span><span class="art-line"></span>
+        <span class="art-label">AC — {featured.data.category}</span>
+      </div>
+      <div class="featured-copy">
+        <div>
+          <span class="category-pill">{featured.data.category}</span>
+          <h3>{featured.data.title}</h3>
+          <p>{featured.data.description}</p>
+        </div>
+        <div class="featured-meta">
+          <span>{featured.data.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
+          <span>{featured.data.readTime}</span><i>↗</i>
+        </div>
+      </div>
+    </a>
   </section>
 
-  <section class="section-block">
-    <div class="section-head">
-      <p class="section-kicker">Archive</p>
-      <h2>All writing</h2>
+  <section class="section-block archive-section" data-reveal>
+    <div class="archive-toolbar">
+      <div>
+        <p class="section-kicker">Archive</p>
+        <h2>All writing</h2>
+      </div>
+      <span>{posts.length.toString().padStart(2, "0")} entries</span>
     </div>
-
     <div class="archive-list">
-      {
-        archive.map((post) => (
-          <PostCard
-            href={`/writing/${post.id}/`}
-            title={post.data.title}
-            description={post.data.description}
-            category={post.data.category}
-            publishedAt={post.data.publishedAt}
-            readTime={post.data.readTime}
-          />
-        ))
-      }
+      {archive.map((post) => (
+        <PostCard
+          href={`/writing/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          category={post.data.category}
+          publishedAt={post.data.publishedAt}
+          readTime={post.data.readTime}
+        />
+      ))}
     </div>
   </section>
 </BaseLayout>

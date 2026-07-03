@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const relatedPosts = posts
   .filter((entry) => entry.id !== post.id)
@@ -28,12 +28,15 @@ const formattedDate = post.data.publishedAt.toLocaleDateString("en-US", {
 ---
 
 <BaseLayout title={`${post.data.title} | Aaron Cao`} currentPath="/writing">
-  <article class="article-page">
+  <article class="article-page" data-reveal>
     <header class="article-header">
-      <p class="eyebrow">{post.data.category}</p>
+      <a class="article-back" href="/writing">← Back to writing</a>
+      <p class="eyebrow"><span class="category-pill">{post.data.category}</span></p>
       <h1>{post.data.title}</h1>
       <p class="article-deck">{post.data.description}</p>
-      <p class="article-meta">{formattedDate} · {post.data.readTime}</p>
+      <div class="article-meta">
+        <span>By Aaron Cao</span><i></i><span>{formattedDate}</span><i></i><span>{post.data.readTime}</span>
+      </div>
     </header>
 
     <div class="article-body">
@@ -41,13 +44,13 @@ const formattedDate = post.data.publishedAt.toLocaleDateString("en-US", {
     </div>
   </article>
 
-  <section class="related-posts">
+  <section class="related-posts" data-reveal>
     <div class="section-head">
       <p class="section-kicker">Continue reading</p>
       <h2>Related entries</h2>
     </div>
 
-    <div class="post-grid">
+    <div class="post-grid related-grid">
       {
         relatedPosts.map((entry) => (
           <article class="post-card">

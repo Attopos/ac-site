@@ -11,60 +11,193 @@ const featured = posts.find((post) => post.data.featured) ?? posts[0];
 const latest = posts.filter((post) => post.id !== featured.id).slice(0, 3);
 ---
 
-<BaseLayout
-  title="Aaron Cao | Writing about systems, leverage, and building"
-  currentPath="/"
->
-  <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">Personal publication</p>
-      <h1>Writing about systems, leverage, and building a deliberate life.</h1>
+<BaseLayout title="Aaron Cao — Ideas, systems, and deliberate work" currentPath="/">
+  <section class="home-hero">
+    <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+    <div class="hero-content" data-reveal>
+      <a class="announcement" href={`/writing/${featured.id}/`}>
+        <span class="announcement-label">New</span>
+        <span>{featured.data.title}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <h1>Turning thought into <span>clear direction.</span></h1>
       <p class="hero-text">
-        A calm archive for essays and notes on work, technology, and the structures that create range over time.
+        I write about systems, technology, and the quiet work of building a life with more agency.
       </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/writing">
+          Explore the writing <span aria-hidden="true">→</span>
+        </a>
+        <a class="button button-ghost" href="/about">About me</a>
+      </div>
     </div>
 
-    <aside class="featured-panel">
-      <p class="eyebrow">Featured essay</p>
-      <h2><a href={`/writing/${featured.id}/`}>{featured.data.title}</a></h2>
-      <p class="feature-meta">{featured.data.category} · {featured.data.readTime}</p>
-      <p>{featured.data.description}</p>
-    </aside>
+    <div class="system-window" data-reveal>
+      <div class="window-chrome">
+        <div class="window-dots"><span></span><span></span><span></span></div>
+        <p>AC / thinking-system</p>
+        <span class="window-state"><i></i> Live</span>
+      </div>
+      <div class="window-body">
+        <aside class="system-sidebar" aria-hidden="true">
+          <div class="mini-brand">A</div>
+          <span class="side-icon active"></span>
+          <span class="side-icon"></span>
+          <span class="side-icon"></span>
+          <span class="side-icon"></span>
+        </aside>
+        <div class="system-content">
+          <div class="system-heading">
+            <div>
+              <p class="ui-label">Workspace</p>
+              <h2>Ideas in motion</h2>
+            </div>
+            <div class="avatar-stack"><span>AC</span><span>+</span></div>
+          </div>
+          <div class="system-grid">
+            <div class="system-card card-featured">
+              <div class="card-icon violet">✦</div>
+              <p class="ui-label">Current focus</p>
+              <h3>Build clear systems for meaningful work.</h3>
+              <div class="progress-track"><span></span></div>
+              <div class="card-foot"><span>In progress</span><span>72%</span></div>
+            </div>
+            <div class="system-card metric-card">
+              <div class="metric-ring"><span>03</span></div>
+              <p>Active threads</p>
+            </div>
+            <div class="system-card activity-card">
+              <div class="activity-row">
+                <span class="activity-icon blue">W</span>
+                <div><strong>Writing</strong><small>Compress the idea</small></div>
+                <i></i>
+              </div>
+              <div class="activity-row">
+                <span class="activity-icon purple">B</span>
+                <div><strong>Building</strong><small>Test against reality</small></div>
+                <i></i>
+              </div>
+              <div class="activity-row">
+                <span class="activity-icon rose">R</span>
+                <div><strong>Reflection</strong><small>Keep what compounds</small></div>
+                <i></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="section-block">
-    <div class="section-head">
-      <p class="section-kicker">Latest writing</p>
-      <h2>Recent essays and working notes</h2>
+  <section class="signal-strip" aria-label="Topics">
+    <p>Exploring the intersection of</p>
+    <div class="signal-topics">
+      <span><i></i>Systems</span>
+      <span><i></i>Technology</span>
+      <span><i></i>Writing</span>
+      <span><i></i>Life design</span>
     </div>
+  </section>
+
+  <section class="section-block principles-section" data-reveal>
+    <div class="section-intro">
+      <p class="section-kicker">Operating principles</p>
+      <h2>Better structures create <span>better possibilities.</span></h2>
+      <p>The recurring ideas behind my work, writing, and experiments.</p>
+    </div>
+    <div class="principle-grid">
+      <article class="principle-card principle-wide">
+        <div class="principle-visual nodes-visual" aria-hidden="true">
+          <span class="node node-main">01</span>
+          <span class="node node-a">Input</span>
+          <span class="node node-b">Signal</span>
+          <span class="node node-c">Action</span>
+          <i class="line line-a"></i><i class="line line-b"></i><i class="line line-c"></i>
+        </div>
+        <div class="principle-copy">
+          <span class="principle-number">01</span>
+          <h3>Think in systems</h3>
+          <p>Look beyond isolated events. Find the structure, feedback loops, and constraints shaping the outcome.</p>
+        </div>
+      </article>
+      <article class="principle-card">
+        <div class="principle-visual leverage-visual" aria-hidden="true">
+          <span class="leverage-dot dot-one"></span>
+          <span class="leverage-dot dot-two"></span>
+          <span class="leverage-dot dot-three"></span>
+          <span class="leverage-axis"></span>
+        </div>
+        <div class="principle-copy">
+          <span class="principle-number">02</span>
+          <h3>Build for leverage</h3>
+          <p>Create assets and skills that keep working after the initial effort.</p>
+        </div>
+      </article>
+      <article class="principle-card">
+        <div class="principle-visual focus-visual" aria-hidden="true">
+          <span class="focus-glow"></span>
+          <span class="focus-core"></span>
+          <i></i><i></i><i></i>
+        </div>
+        <div class="principle-copy">
+          <span class="principle-number">03</span>
+          <h3>Protect attention</h3>
+          <p>Treat focus as infrastructure. What receives attention eventually shapes a life.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block writing-section" data-reveal>
+    <div class="section-row">
+      <div class="section-intro compact">
+        <p class="section-kicker">Selected writing</p>
+        <h2>Notes from the <span>workbench.</span></h2>
+      </div>
+      <a class="text-link" href="/writing">View all writing <span>→</span></a>
+    </div>
+
+    <a class="featured-essay" href={`/writing/${featured.id}/`}>
+      <div class="featured-art" aria-hidden="true">
+        <div class="art-grid"></div>
+        <span class="art-orb"></span>
+        <span class="art-line"></span>
+        <span class="art-label">AC — {featured.data.category}</span>
+      </div>
+      <div class="featured-copy">
+        <div>
+          <span class="category-pill">{featured.data.category}</span>
+          <h3>{featured.data.title}</h3>
+          <p>{featured.data.description}</p>
+        </div>
+        <div class="featured-meta">
+          <span>{featured.data.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
+          <span>{featured.data.readTime}</span>
+          <i>↗</i>
+        </div>
+      </div>
+    </a>
 
     <div class="post-grid">
-      {
-        latest.map((post) => (
-          <PostCard
-            href={`/writing/${post.id}/`}
-            title={post.data.title}
-            description={post.data.description}
-            category={post.data.category}
-            publishedAt={post.data.publishedAt}
-            readTime={post.data.readTime}
-          />
-        ))
-      }
+      {latest.map((post) => (
+        <PostCard
+          href={`/writing/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          category={post.data.category}
+          publishedAt={post.data.publishedAt}
+          readTime={post.data.readTime}
+        />
+      ))}
     </div>
   </section>
 
-  <section class="topics-strip">
-    <div>
-      <p class="section-kicker">Topics</p>
-      <h2>The recurring threads</h2>
-    </div>
-    <ul class="topic-list">
-      <li>Systems</li>
-      <li>Writing</li>
-      <li>Technology</li>
-      <li>Focus</li>
-      <li>Life Design</li>
-    </ul>
+  <section class="closing-cta" data-reveal>
+    <div class="cta-glow" aria-hidden="true"></div>
+    <p class="section-kicker">Keep exploring</p>
+    <h2>Clarity is built,<br /><span>one idea at a time.</span></h2>
+    <p>Follow the threads through essays, projects, and notes from the process.</p>
+    <a class="button button-primary" href="/writing">Start reading <span>→</span></a>
   </section>
 </BaseLayout>
